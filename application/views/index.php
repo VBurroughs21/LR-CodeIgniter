@@ -20,15 +20,19 @@
 		</style>
 	</head>
 	<body>
+<?php 	if ($this->session->flashdata('registered')) {
+		echo $this->session->flashdata('registered'). "<br>";
+		}
+?>
 		<div id="login">
 			<form method="post" action="login/log">
+				<input type="hidden" name="action" value="login">
 				<fieldset>
 					<legend>Login</legend>
 <?php 				if ($this->session->flashdata('login_error')) {
-						echo $this->session->flashdata('login_error');
+						echo $this->session->flashdata('login_error'). "<br>";
 					}
 ?>
-					<input type="hidden" name="action" value="login">
 					Email:<input type="text" name="email">
 					Password:<input type="password" name="password">
 					<input type="submit" name="login" value="Login">
@@ -41,7 +45,7 @@
 				<fieldset>
 					<legend>Register</legend>
 <?php 				if ($this->session->flashdata('reg_error')) {
-						echo $this->session->flashdata('reg_error');
+						echo $this->session->flashdata('reg_error'). "<br>";
 					}
 ?>
 					First Name:<input type="text" name="first_name">
